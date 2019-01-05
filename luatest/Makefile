@@ -2,6 +2,7 @@ all:
 	gcc -DLUA_COMPAT_5_2 -DLUA_USE_LINUX -DLUA_COMPAT_MODULE lua1.c  -llua -ldl -lm
 	gcc -DLUA_COMPAT_5_2 -DLUA_USE_LINUX -DLUA_COMPAT_MODULE luamod.c -shared liblua.a -o mytestlib.so
 	gcc -DLUA_COMPAT_5_2 -DLUA_USE_LINUX -DLUA_COMPAT_MODULE luabuiltin.c  -o buin -llua -ldl -lm 
+	gcc -DLUA_COMPAT_5_2 -DLUA_USE_LINUX -DLUA_COMPAT_MODULE ave.c  -o ave -llua -ldl -lm 
 	g++ -DLUA_COMPAT_5_2 -DLUA_USE_LINUX -DLUA_COMPAT_MODULE touch.cpp  -o touch -llua -ldl -lm 
 	luac -o lua.code lib1.lua 
 test:
@@ -13,3 +14,5 @@ test:
 	./a.out
 	@echo test4......
 	lua ./lua.code
+	@echo test5......
+	./ave
