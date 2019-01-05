@@ -1,0 +1,14 @@
+all:
+	gcc -DLUA_COMPAT_5_2 -DLUA_USE_LINUX -DLUA_COMPAT_MODULE lua1.c  -llua -ldl -lm
+	gcc -DLUA_COMPAT_5_2 -DLUA_USE_LINUX -DLUA_COMPAT_MODULE luamod.c -shared liblua.a -o mytestlib.so
+	gcc -DLUA_COMPAT_5_2 -DLUA_USE_LINUX -DLUA_COMPAT_MODULE luabuiltin.c  -o buin -llua -ldl -lm 
+	luac -o lua.code lib1.lua 
+test:
+	@echo test1.......
+	./buin lib1.lua
+	@echo test2.......
+	lua luamod.lua
+	@echo test3.......
+	./a.out
+	@echo test4......
+	lua ./lua.code
