@@ -38,4 +38,7 @@ function consumer (ft)
     end
 end
 
-consumer(filter(producter()))
+a=producter()
+b=filter(a)
+consumer(b)
+--consumer(filter(producter()))
