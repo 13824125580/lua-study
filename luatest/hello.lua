@@ -3,3 +3,5 @@ tbl = {name = "shun", id = 20114442}
 function add(a,b)  
     return a + b  
 end
+
+print(add(1, 2))
