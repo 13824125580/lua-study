@@ -10,7 +10,7 @@ extern "C"
 }  
 
 lua_State* L;  
-static int average(lua_State *L)  
+static int __attribute((noinline)) average(lua_State *L)  
 {  
     /* 得到参数个数 */  
     int n = lua_gettop(L);  
@@ -31,6 +31,18 @@ static int average(lua_State *L)
     printf("asdfasfasfd\n");
     return 2;  
 }  
+
+static int zilong_version(lua_State *L)
+{
+    lua_pushstring(L, "melisversion");
+    return 1;
+}
+
+static int zilong_success(lua_State *L)
+{
+    lua_pushstring(L, "successzilong");
+    return 1;
+}
 int main()  
 {  
     //1.创建Lua状态  
@@ -44,6 +56,17 @@ int main()
     lua_register(L, "average", average);  
 
     printf("stk:%d\n",lua_gettop(L));
+
+    //lua_getglobal(L, "zilong");
+    lua_newtable(L);
+    lua_pushvalue(L, -1);
+    lua_setglobal(L, "zilong");
+
+    lua_pushcfunction(L, zilong_version);
+    lua_setfield(L, -2, "version");
+    lua_pushcfunction(L, zilong_success);
+    lua_setfield(L, -2, "success");
+   
     //2.加载Lua文件  
     int bRet = luaL_loadfile(L,"hello.lua");  
     if(bRet)  
@@ -51,7 +74,7 @@ int main()
         cout<<"load file error"<<endl;  
         return -1;  
     }  
-   
+    
     printf("stk:%d\n",lua_gettop(L));
     //3.运行Lua文件  
     bRet = lua_pcall(L,0,0,0);  
@@ -108,7 +131,9 @@ int main()
         double fValue = lua_tonumber(L, -3);  
         cout << "Result is " << fValue << endl;  
     }  
-   
+    //lua_pop(L, 1);
+    //lua_pop(L, 1);
+    //lua_pop(L, 1);
     //至此，栈中的情况是：  
     //=================== 栈顶 ===================   
     //  索引  类型      值  
