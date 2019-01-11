@@ -59,13 +59,20 @@ int main()
 
     //lua_getglobal(L, "zilong");
     lua_newtable(L);
+    printf("stk:%d\n",lua_gettop(L));
     lua_pushvalue(L, -1);
+    printf("stk:%d\n",lua_gettop(L));
     lua_setglobal(L, "zilong");
+    printf("stk:%d\n",lua_gettop(L));
 
     lua_pushcfunction(L, zilong_version);
+    printf("stk:%d\n",lua_gettop(L));
     lua_setfield(L, -2, "version");
+    printf("stk:%d\n",lua_gettop(L));
     lua_pushcfunction(L, zilong_success);
+    printf("stk:%d\n",lua_gettop(L));
     lua_setfield(L, -2, "success");
+    printf("stkk:%d\n",lua_gettop(L));
    
     //2.加载Lua文件  
     int bRet = luaL_loadfile(L,"hello.lua");  
