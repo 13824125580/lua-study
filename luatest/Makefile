@@ -6,6 +6,7 @@ all:
 	gcc -DLUA_COMPAT_5_2 -DLUA_USE_LINUX -DLUA_COMPAT_MODULE ave.c  -o ave -llua -ldl -lm 
 	g++ -DLUA_COMPAT_5_2 -DLUA_USE_LINUX -DLUA_COMPAT_MODULE -g -O0 touch.cpp  -o cpplua -llua -ldl -lm 
 	gcc -DLUA_COMPAT_5_2 -DLUA_USE_LINUX -DLUA_COMPAT_MODULE para.c  -llua -ldl -lm -o para
+	gcc -DLUA_COMPAT_5_2 -DLUA_USE_LINUX -DLUA_COMPAT_MODULE line.c  -llua -ldl -lm -o line
 	luac -o lua.code lib1.lua 
 test:
 	@echo test1.......

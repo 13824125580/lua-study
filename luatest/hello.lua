@@ -6,6 +6,9 @@ function add(a, b)
     avg, sum = average(0, 20, 30, 40, 50)  
     return a + b, avg, sum  
 end
-print(zilong.version())
-print(zilong.success())
+collectgarbage("count")
+--print(zilong.version())
+--print(zilong.success())
+collectgarbage("count")
 --add(10, 2)
+_VERSION()
