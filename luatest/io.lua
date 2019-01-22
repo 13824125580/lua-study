@@ -11,11 +11,11 @@ local function bytesToHexStr(filePath)
     local len = string.len(content)
     for i = 1, len do
         local charcode = tonumber(string.byte(content, i, i));
-        local hexstr = string.format("%02X", charcode);
+        local hexstr = "0x" .. string.format("%02x", charcode) .. " ";
         result = result .. hexstr
     end
 
     return result
 end
-
-print(bytesToHexStr("./hello.lua"))
+local str= bytesToHexStr("./hello.lua")
+print(str)
