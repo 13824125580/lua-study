@@ -1,0 +1,1 @@
+dofile "hello.lua"
