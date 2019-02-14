@@ -18,8 +18,14 @@ end
 
 local o1 = class:new()
 o1.say()
+<<<<<<< HEAD
 
 local o2 = o1:new()
+=======
+print(type(o1.__index))
+local o2 = o1:new()
+print(type(o1.__index))
+>>>>>>> 1f365973b1152f3d5bde153196ac4addcb75bd87
 o2.say()
 
 --- 写法2, 只能继承1次, 第2次派生时没了__index元方法
@@ -37,6 +43,10 @@ end
 local o1 = class:new()
 o1.say()
 
+<<<<<<< HEAD
+=======
+print(type(o1.__index))
+>>>>>>> 1f365973b1152f3d5bde153196ac4addcb75bd87
 -- 第2次继承失败了, 因为o1并没有__index元方法
 local o2 = o1:new()
 o2.say()

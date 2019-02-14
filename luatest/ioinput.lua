@@ -1,0 +1,5 @@
+print(_IO_input)
+print(type(_IO_input))
+--print(input)
+print(type(_ENV["_IO_input"]))
+print(type(io.stdin))

@@ -12,9 +12,9 @@ function producter ()
     return coroutine.create(function ()
         -- 循环从标准输入获取行数据
         while true do
-	print("adfff")
+	--print("adfff")
         local data = io.read()
-	print("adf")
+	--print("adf")
         send(data)
     end
     end)
@@ -41,9 +41,6 @@ function consumer (ft)
 end
 
 a=producter()
-print("afdddd1")
 b=filter(a)
-print("afdddd2")
 consumer(b)
-print("afdddd3")
 --consumer(filter(producter()))

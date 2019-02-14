@@ -1,0 +1,10 @@
+local a = {o = 1, p = 2, k = 3, q = 4}
+local value = nil 
+local key = nil 
+print(a["o"])
+while next(a, key) do
+    --print(next(a, value))
+    --print(value)
+    value = next(a, value)
+    print(value)
+end
