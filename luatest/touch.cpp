@@ -82,7 +82,7 @@ int main()
         return -1;  
     }  
     
-    printf("stk:%d\n",lua_gettop(L));
+    printf("stk:%d line1 \n",lua_gettop(L));
     //3.运行Lua文件  
     bRet = lua_pcall(L,0,0,0);  
     if(bRet)  
@@ -91,7 +91,7 @@ int main()
 	return -1;  
     }  
    
-    printf("stk:%d\n",lua_gettop(L));
+    printf("stk:%d line2\n",lua_gettop(L));
     //4.读取变量  
     lua_getglobal(L,"str");  
     printf("stk:%d\n",lua_gettop(L));

@@ -14,8 +14,8 @@ end
 
 coco = coroutine.create(function (a,b)
     print("resume args:"..a..","..b)
-    yr = xpcall(main, traceback)
-    print ("yreturn :"..yreturn)
+    ab, yr = xpcall(main, traceback)
+    print ("yreturn and ab:" ..yreturn, ab)
 end)
 coroutine.resume(coco,0,1)
 coroutine.resume(coco,21)
