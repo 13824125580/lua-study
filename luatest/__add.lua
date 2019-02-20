@@ -23,10 +23,14 @@ local function main()
         print("a + b :", a + b)
 end
 
+local function main_()
+        return xpcall(main, traceback)
+end
+
 
 coco = coroutine.create(function (a,b)
     print("resume args:"..a..","..b)
-    ab, yr = xpcall(main, traceback)
+    ab, yr = xpcall(main_, traceback)
     print ("yreturn and ab:" ..yreturn, ab)
 end)
 coroutine.resume(coco,0,1)
